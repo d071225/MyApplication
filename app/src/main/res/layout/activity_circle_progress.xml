@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.dyy.newtest.ui.activity.CircleProgressActivity">
+    <com.dyy.newtest.view.CircleProgressView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="100dp"
+        android:id="@+id/cpv"
+        app:InnerCircleColor="@color/colorAccent"
+        app:InnerCircleTextColor="@color/Blue"
+        app:InnerCircleSize="20dp"
+        app:InnerCircleTextSize="10sp"
+        app:CircleProgress="100"
+        app:OuterCircleColor="@color/colorAccent"
+        app:OuterCircleStartAngle="-90"
+        app:OuterCircleStrokeWidth="20dp"
+        tools:context="com.dyy.newtest.ui.activity.CircleProgressActivity"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="hello"
+        android:id="@+id/tv"
+        android:textSize="20sp"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="开始"
+        android:id="@+id/btn_start"/>
+</LinearLayout>

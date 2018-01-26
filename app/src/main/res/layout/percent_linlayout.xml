@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.dyy.newtest.view.PercentLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/first"
+        android:background="@color/colorAccent"
+        android:text="第一行"
+        android:visibility="visible"
+        app:layout_heightPercent="30%"
+        app:layout_widthPercent="90%" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorPrimary"
+        android:id="@+id/secent"
+        android:text="第二行"
+        android:visibility="visible"
+        app:layout_heightPercent="30%"
+        app:layout_widthPercent="20%" />
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorPrimary"
+        android:id="@+id/third"
+        android:text="第三行"
+        android:visibility="visible"
+        app:layout_marginTopPercent="10%"
+        app:layout_heightPercent="30%"
+        app:layout_widthPercent="20%" />
+</com.dyy.newtest.view.PercentLinearLayout>

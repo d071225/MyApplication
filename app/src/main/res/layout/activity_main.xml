@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.dyy.newtest.MainActivity">
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="Hello World!"
+        android:id="@+id/hello"
+        android:gravity="center"
+        android:layout_alignParentRight="true"
+        android:background="@color/colorAccent"
+        app:layout_heightPercent="30%"
+        app:layout_widthPercent="70%"  />
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="距离左边5%"
+        android:id="@+id/left"
+        android:gravity="center"
+        android:layout_alignParentLeft="true"
+        android:background="@color/colorPrimary"
+        app:layout_marginLeftPercent ="5%"
+        app:layout_heightPercent="30%"
+        app:layout_widthPercent="20%"  />
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="距离顶部view 10%距离!"
+        android:gravity="center"
+        android:layout_below="@+id/hello"
+        android:layout_alignLeft="@+id/hello"
+        android:background="@color/colorPrimaryDark"
+        app:layout_marginTopPercent ="10%"
+        app:layout_heightPercent="30%"
+        app:layout_widthPercent="20%"  />
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="距离底部10%!"
+        android:gravity="center"
+        android:background="@color/colorAccent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        app:layout_marginBottomPercent ="10%"
+        app:layout_heightPercent="30%"
+        app:layout_widthPercent="10%"  />
+    <TextView
+        android:layout_width="32dp"
+        android:layout_height="144dp"
+        android:text="距离底部10%!"
+        android:gravity="center"
+        android:background="@color/colorAccent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="48dp"/>
+
+
+</android.support.percent.PercentRelativeLayout>

@@ -1,0 +1,28 @@
+<resources>
+
+    <!-- Declare custom theme attributes that allow changing which styles are
+         used for button bars depending on the API level.
+         ?android:attr/buttonBarStyle is new as of API 11 so this is
+         necessary to support previous API levels. -->
+    <declare-styleable name="ButtonBarContainerTheme">
+        <attr name="metaButtonBarStyle" format="reference" />
+        <attr name="metaButtonBarButtonStyle" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="MyCustomView">
+        <attr name="MyCustomViewSize" format="dimension"/>
+        <attr name="MyCustomViewColor" format="color"/>
+        <attr name="MyCustomViewText" format="string"/>
+    </declare-styleable>
+    <declare-styleable name="CircleProgressView">
+        <attr name="InnerCircleSize" format="dimension"/>
+        <attr name="InnerCircleColor" format="color"/>
+        <attr name="InnerCircleText" format="string"/>
+        <attr name="InnerCircleTextSize" format="dimension"/>
+        <attr name="InnerCircleTextColor" format="color"/>
+        <attr name="OuterCircleColor" format="color"/>
+        <attr name="OuterCircleSize" format="dimension"/>
+        <attr name="OuterCircleStrokeWidth" format="dimension"/>
+        <attr name="OuterCircleStartAngle" format="float"/>
+        <attr name="CircleProgress" format="float"/>
+    </declare-styleable>
+</resources>
