@@ -32,7 +32,6 @@
         <meta-data
             android:name="com.dyy.newtest.view.MyGlideModule"
             android:value="GlideModule" />
-
         <!-- <activity android:name=".ui.activity.LargeImageActivity"></activity> -->
         <!-- <activity android:name=".ui.activity.FragmentActivity"></activity> -->
         <!-- <activity android:name=".ui.activity.EventBusActivity"></activity> -->
