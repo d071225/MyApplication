@@ -69,8 +69,10 @@ public class RecycleViewRefreshActivity extends AppCompatActivity {
             @Override
             public void onItemClick(View view, int position) {
                 Intent intent=new Intent(RecycleViewRefreshActivity.this,BigPicActivity.class);
-                intent.putExtra("url",urls.get(position));
+                intent.putExtra("url",urls.get(position-1));
                 startActivity(intent);
+//                adapter.notifyItemChanged(position,"123");
+                Log.e("setOnItemClickListener","position------"+position);
             }
 
             @Override
@@ -127,6 +129,7 @@ public class RecycleViewRefreshActivity extends AppCompatActivity {
     @OnClick({R.id.rv_pic})
     public void onViewClicked() {
         glideCacheUtil.clearImageAllCache(RecycleViewRefreshActivity.this);
+//        adapter.notifyItemChanged(1);
     }
 
     @Override

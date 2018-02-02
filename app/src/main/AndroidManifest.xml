@@ -16,7 +16,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
-            android:name=".ui.activity.CircleProgressActivity"
+            android:name=".ui.activity.AddGoodsActivity"
+            android:alwaysRetainTaskState="true"
             android:configChanges="orientation|keyboardHidden|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,7 +41,45 @@
         <!-- <activity android:name=".ui.activity.MyViewActivity"></activity> -->
         <!-- <activity android:name=".ui.activity.CircleProgressActivity"></activity> -->
         <!-- <activity android:name=".ui.activity.LayoutInflaterActivity"></activity> -->
-        <!--<activity android:name=".ui.activity.MyViewGroupActivity"></activity>-->
+        <activity
+            android:name=".ui.activity.MyViewGroupActivity"
+            android:finishOnTaskLaunch="true"
+            android:launchMode="standard" />
+        <!-- <activity android:name=".ui.activity.launchmode.LaunchModeActivity"></activity> -->
+        <activity
+            android:name=".ui.activity.launchmode.StandardActivity"
+            android:alwaysRetainTaskState="true"
+            android:exported="true"
+            android:launchMode="standard" />
+        <activity
+            android:name=".ui.activity.launchmode.SingleTopActivity"
+            android:alwaysRetainTaskState="true"
+            android:exported="true"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ui.activity.launchmode.SingleTaskActivity"
+            android:alwaysRetainTaskState="true"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.dyy.newtest.ui.activity.launchmode.SingleTaskActivity" />
+        <activity
+            android:name=".ui.activity.launchmode.SingleInstanceActivity"
+            android:exported="true"
+            android:launchMode="singleInstance" />
+        <activity android:name=".ui.activity.launchmode.FlagsSingleTopActivity" />
+        <activity android:name=".ui.activity.launchmode.FlagsSingleTaskActivity" />
+        <activity android:name=".ui.activity.launchmode.FlagsSingleInstanceActivity" />
+
+        <service
+            android:name=".ui.service.ServiceToStartActivity"
+            android:description="@string/service_de"
+            android:enabled="true"
+            android:exported="true"
+            android:icon="@drawable/ic_arrow"
+            android:label="@string/service_name" />
+
+        <!-- <activity android:name=".ui.activity.PopupwindowActivity"></activity> -->
+        <!--<activity android:name=".ui.activity.AddGoodsActivity"></activity>-->
     </application>
 
 </manifest>

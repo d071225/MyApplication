@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">newTest</string>
+    <string name="service_de">这是一个服务的描述</string>
+    <string name="service_name">这是一个服务</string>
 
     <string name="title_activity_big_pic">BigPicActivity</string>
     <string name="dummy_button">Dummy Button</string>

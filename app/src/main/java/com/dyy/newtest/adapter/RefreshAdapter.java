@@ -110,13 +110,27 @@ public class RefreshAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     }
 
     @Override
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position, List<Object> payloads) {
+        super.onBindViewHolder(holder, position, payloads);
+        Log.e("onBindViewHolder","onBindViewHolder payloads---------------");
+        if (payloads.isEmpty()){
+            onBindViewHolder(holder,position);
+        }else {
+            if (holder instanceof ContentViewHolder) {
+                final ImageView iv = ((ContentViewHolder) holder).imageView;
+                iv.setImageResource(R.drawable.ic_arrow);
+            }
+        }
+    }
+
+    @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
+        Log.e("onBindViewHolder","onBindViewHolder---------------");
         if (holder instanceof HeaderViewHolder) {
             // 获取cardview的布局属性，记住这里要是布局的最外层的控件的布局属性，如果是里层的会报cast错误
 //            StaggeredGridLayoutManager.LayoutParams slp = (StaggeredGridLayoutManager.LayoutParams) holder.itemView.getLayoutParams();
             // 最最关键一步，设置当前view占满列数，这样就可以占据两列实现头部了
 //            slp.setFullSpan(true);
-
             Banner banner = ((HeaderViewHolder) holder).banner;
             //设置样式,默认为:Banner.NOT_INDICATOR(不显示指示器和标题)
             //可选样式如下:
@@ -137,7 +151,7 @@ public class RefreshAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             banner.setBannerTitles(headerTitles);
 
             //设置是否自动轮播（不设置则默认自动）
-            banner.isAutoPlay(true) ;
+            banner.isAutoPlay(false) ;
 
             //设置轮播图片间隔时间（不设置默认为2000）
             banner.setDelayTime(5000);
@@ -187,8 +201,8 @@ public class RefreshAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 @Override
                 public void onClick(View v)
                 {
-                    int pos = holder.getLayoutPosition();
-                    mOnItemClickListener.onItemClick(holder.itemView, pos-1);
+//                    int pos = holder.getLayoutPosition();
+                    mOnItemClickListener.onItemClick(holder.itemView, position);
 
                 }
             });
@@ -199,7 +213,7 @@ public class RefreshAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 public boolean onLongClick(View v)
                 {
                     int pos = holder.getLayoutPosition();
-                    mOnItemClickListener.onItemLongClick(holder.itemView, pos-1);
+                    mOnItemClickListener.onItemLongClick(holder.itemView, pos);
                     return false;
                 }
             });
