@@ -61,11 +61,18 @@ public class UploadActivity extends AppCompatActivity {
                 String msg = intent.getStringExtra("msg");
                 LogUtils.e("--------onReceive-----------msg="+msg);
                 tvUploadStatus.setText(msg);
-                File apkFile = new File(path);
+//                File apkFile = new File(path);
+//                Intent installIntent = new Intent(Intent.ACTION_VIEW);
+//                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                intent.setDataAndType(Uri.fromFile(new File(path)), "application/vnd.android.package-archive");
+//                startActivity(installIntent);
                 Intent installIntent = new Intent(Intent.ACTION_VIEW);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.setDataAndType(Uri.fromFile(new File(path)), "application/vnd.android.package-archive");
-                startActivity(installIntent);
+                installIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
+                        | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+                installIntent.setDataAndType(Uri.fromFile(new File(Environment
+                                .getExternalStorageDirectory(), "debug.apk")),
+                        "application/vnd.android.package-archive");
+                context.startActivity(installIntent);
             }
         }
     }
