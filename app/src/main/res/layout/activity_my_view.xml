@@ -7,6 +7,10 @@
     android:orientation="vertical"
     android:padding="20px"
     tools:context="com.dyy.newtest.ui.activity.MyViewActivity">
+    <com.dyy.newtest.view.TextTitleBar
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></com.dyy.newtest.view.TextTitleBar>
     <!--<com.dyy.newtest.view.MyLinearLayout-->
         <!--android:layout_width="400px"-->
         <!--android:layout_height="300px"-->
@@ -16,7 +20,7 @@
         <!--android:layout_margin="50px"-->
         <!--android:id="@+id/ll_parent">-->
         <com.dyy.newtest.view.MyCustomView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:id="@+id/tv_child"

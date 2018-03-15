@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.blankj.utilcode.util.LogUtils;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.ViewTarget;
@@ -78,12 +79,15 @@ public class GirlAdapter extends RecyclerView.Adapter<GirlAdapter.GirlVHold> {
 
     @Override
     public void onBindViewHolder(GirlVHold holder, int position) {
-        //利用diskLruCache经行缓存
-//        holder.girl.setTag(urls.get(position));
-//        loadBitmap(urls.get(position),holder.girl);
-
         ImageView girl = holder.girl;
         String url = urls.get(position);
+        LogUtils.e(girl+";"+url);
+        //利用diskLruCache经行缓存
+        if (url!=null) {
+            girl.setTag(url);
+            loadBitmap(url, girl);
+        }
+
 
         //方案二：改变holder.button的高度
 //        int height = heightList.get(position);
@@ -99,15 +103,15 @@ public class GirlAdapter extends RecyclerView.Adapter<GirlAdapter.GirlVHold> {
         Log.e("GirlAdapter","url:"+url+";高度:"+girl.getHeight());
 
         //方案四
-        if (!this.imageHeightMap.containsKey(position)){
-            //当首次加载图片时，调用 loadImageFirst()，保存图片高度
-            loadImageFirst(girl,position);
-        }else{
-            //非首次加载，直接根据保存的长宽，获取图片
-            Glide.with(context)
-                    .load(urls.get(position)).override(width,this.imageHeightMap.get(position))
-                    .into(girl);
-        }
+//        if (!this.imageHeightMap.containsKey(position)){
+//            //当首次加载图片时，调用 loadImageFirst()，保存图片高度
+//            loadImageFirst(girl,position);
+//        }else{
+//            //非首次加载，直接根据保存的长宽，获取图片
+//            Glide.with(context)
+//                    .load(urls.get(position)).override(width,this.imageHeightMap.get(position))
+//                    .into(girl);
+//        }
     }
 
     public void loadImageFirst(View view, final int position){

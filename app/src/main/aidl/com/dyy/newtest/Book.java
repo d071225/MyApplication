@@ -37,4 +37,13 @@ public class Book implements Parcelable{
         dest.writeInt(bookId);
         dest.writeString(name);
     }
+    /**
+     * 参数是一个Parcel,用它来存储与传输数据
+     * @param dest
+     */
+    public void readFromParcel(Parcel dest) {
+        //注意，此处的读值顺序应当是和writeToParcel()方法中一致的
+        bookId = dest.readInt();
+        name = dest.readString();
+    }
 }

@@ -10,8 +10,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.blankj.utilcode.util.ToastUtils;
 import com.dyy.newtest.R;
 import com.dyy.newtest.view.MyCustomView;
+import com.dyy.newtest.view.TextTitleBar;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -24,17 +26,33 @@ public class MyViewActivity extends AppCompatActivity {
     Button btnShow;
     @BindView(R.id.tv_child)
     MyCustomView tvChild;
-//    @BindView(R.id.ll_parent)
+    //    @BindView(R.id.ll_parent)
 //    MyLinearLayout llParent;
+    @BindView(R.id.title)
+    TextTitleBar title;
     @BindView(R.id.tv_show)
     TextView tvShow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_my_view);
         ButterKnife.bind(this);
+        title.setBack(R.drawable.ic_arrow);
+        title.setTitle("自定义控件");
+        title.setBackOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ToastUtils.showLong("图片被点击了");
+            }
+        });
+        title.setTitleOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ToastUtils.showLong("标题被点击了");
+            }
+        });
     }
 
     @Override
@@ -52,13 +70,13 @@ public class MyViewActivity extends AppCompatActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_child:
-                Toast.makeText(MyViewActivity.this,"myView被点击了",Toast.LENGTH_SHORT).show();
+                Toast.makeText(MyViewActivity.this, "myView被点击了", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.tv_show:
                 break;
             case R.id.btn_show:
 //                tvChild.setAnimation(AnimationUtils.loadAnimation(MyViewActivity.this,R.anim.translate_x));
-                ObjectAnimator.ofFloat(tvChild,"translationX",0,300).setDuration(1000).start();
+                ObjectAnimator.ofFloat(tvChild, "translationX", 0, 300).setDuration(1000).start();
                 float toParentWhith = tvChild.getX();
                 float toParentHeight = tvChild.getY();
                 float toParentLeft = tvChild.getLeft();

@@ -16,9 +16,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
-            android:name=".ui.activity.AddGoodsActivity"
+            android:name=".ui.activity.service.UploadActivity"
             android:alwaysRetainTaskState="true"
-            android:configChanges="orientation|keyboardHidden|screenSize">
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -79,7 +80,64 @@
             android:label="@string/service_name" />
 
         <!-- <activity android:name=".ui.activity.PopupwindowActivity"></activity> -->
-        <!--<activity android:name=".ui.activity.AddGoodsActivity"></activity>-->
+        <!-- <activity android:name=".ui.activity.AddGoodsActivity"></activity> -->
+        <activity android:name=".ui.activity.DpToPxActivity" />
+        <!-- <activity android:name=".ui.activity.DrawableActivity"></activity> -->
+        <!-- <activity android:name=".ui.activity.DrawableSplashActivity"></activity> -->
+        <!-- <activity android:name=".ui.activity.ipc.IPCActivity" /> -->
+        <activity
+            android:name=".ui.activity.ipc.SecondActivity"
+            android:process=":second" />
+        <activity
+            android:name=".ui.activity.ipc.ThirdActivity"
+            android:process="com.dyy.ipc.thirdActivity" />
+        <!-- <activity android:name=".ui.activity.ViewActivity"></activity> -->
+        <!-- <activity android:name=".ui.activity.objectanimator.ObjectAnimatorActivity"></activity> -->
+        <!-- <activity android:name=".ui.activity.handler.HandlerActivity"></activity> -->
+        <!-- <activity android:name=".ui.activity.DeleteListItemActivity"></activity> -->
+        <!-- <activity android:name=".ui.activity.glide.Main2Activity"></activity> -->
+        <!-- <activity android:name=".ui.activity.glide.BItmapScaleActivity"></activity> -->
+        <!-- <activity android:name=".ui.activity.layout.IncludeActivity"></activity> -->
+        <!-- <activity android:name=".ui.activity.ErrorNoDataActivity"></activity> -->
+        <!-- <activity android:name=".ui.activity.glide.BigBitmapActivity"></activity> -->
+        <!-- <activity android:name=".ui.activity.glide.CircleBitmapActivity"></activity> -->
+        <!-- <activity android:name=".ui.activity.glide.ProgressGlideActivity"></activity> -->
+        <service
+            android:name=".ui.service.PlayerService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <!-- <activity android:name=".ui.activity.service.PlayerServiceActivity"></activity> -->
+        <!-- <activity android:name=".ui.activity.service.PlayerActivity"></activity> -->
+        <service
+            android:name=".ui.service.BinderService"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name=".ui.service.MyIntentService"
+            android:exported="false" />
+        <service
+            android:name=".ui.service.MusicService"
+            android:exported="false" />
+        <service
+            android:name=".ui.service.ForegroundService"
+            android:exported="false" />
+        <service
+            android:name=".ui.service.UpLoadService"
+            android:exported="false" />
+
+        <!-- <activity android:name=".ui.activity.service.ForegroundActivity"></activity> -->
+        <!-- <receiver android:name=".ui.receiver.ForegroundReceiver" > -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="paly"></action> -->
+        <!-- <action android:name="pause"></action> -->
+        <!-- <action android:name="stop"></action> -->
+        <!-- </intent-filter> -->
+        <!-- </receiver> -->
+
+
+        <!-- <activity android:name=".ui.activity.service.NotificationActivity"></activity> -->
+        <!--<activity android:name=".ui.activity.service.UploadActivity"></activity>-->
     </application>
 
 </manifest>

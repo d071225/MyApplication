@@ -8,7 +8,13 @@ import com.bumptech.glide.load.engine.bitmap_recycle.LruBitmapPool;
 import com.bumptech.glide.load.engine.cache.InternalCacheDiskCacheFactory;
 import com.bumptech.glide.load.engine.cache.LruResourceCache;
 import com.bumptech.glide.load.engine.cache.MemorySizeCalculator;
+import com.bumptech.glide.load.model.GlideUrl;
 import com.bumptech.glide.module.GlideModule;
+import com.dyy.newtest.utils.OkHttpGlideUrlLoader;
+
+import java.io.InputStream;
+
+import okhttp3.OkHttpClient;
 
 /**
  * Created by DY on 2018/1/12.
@@ -31,6 +37,9 @@ public class MyGlideModule implements GlideModule {
 
     @Override
     public void registerComponents(Context context, Glide glide) {
-
+        OkHttpClient.Builder builder = new OkHttpClient.Builder();
+//        builder.addInterceptor(new ProgressInterceptor());
+        OkHttpClient okHttpClient = builder.build();
+        glide.register(GlideUrl.class, InputStream.class, new OkHttpGlideUrlLoader.Factory(okHttpClient));
     }
 }
