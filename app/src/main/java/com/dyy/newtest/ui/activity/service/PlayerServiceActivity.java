@@ -14,7 +14,6 @@ import android.widget.Button;
 
 import com.blankj.utilcode.util.LogUtils;
 import com.dyy.newtest.R;
-import com.dyy.newtest.ui.service.BinderService;
 import com.dyy.newtest.ui.service.PlayerService;
 
 import java.io.Serializable;
@@ -61,13 +60,13 @@ public class PlayerServiceActivity extends AppCompatActivity {
         switch (view.getId()) {
             case R.id.btn_play:
                 //1.startservice
-//                goToPlayerSevice(PlayerService.PLAY);
+                goToPlayerSevice(PlayerService.PLAY);
                 //2.binderservice
-                Intent intent = new Intent(mContext, BinderService.class);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("key", PlayerService.PLAY);
-                intent.putExtras(bundle);
-                bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE);
+//                Intent intent = new Intent(mContext, BinderService.class);
+//                Bundle bundle = new Bundle();
+//                bundle.putSerializable("key", PlayerService.PLAY);
+//                intent.putExtras(bundle);
+//                bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE);
                 //3.intentservice
 //                Intent intent=new Intent(mContext, MyIntentService.class);
 //                Bundle bundle=new Bundle();
@@ -94,7 +93,6 @@ public class PlayerServiceActivity extends AppCompatActivity {
         intent.putExtras(bundle);
         startService(intent);
     }
-
     public void startProgress() {
         final NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
         builder.setSmallIcon(R.mipmap.ic_launcher_round);

@@ -44,8 +44,8 @@ public class PlayerService extends Service {
                     break;
             }
         }
-        return super.onStartCommand(intent, flags, startId);
-//        return START_REDELIVER_INTENT;
+//        return super.onStartCommand(intent, flags, startId);
+        return START_REDELIVER_INTENT;
     }
 
     @Override

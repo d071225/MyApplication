@@ -33,7 +33,7 @@ public class OkhttpActivity extends AppCompatActivity {
     @OnClick(R.id.request)
     public void onViewClicked() {
         OkHttpClient okHttpClient=new OkHttpClient();
-        Request build = new Request.Builder().url("http://192.168.10.110:8380/api/wx/msg.do").get().build();
+        Request build = new Request.Builder().url("http://192.168.10.110:8380/api/wx/msg.do").build();
         okHttpClient.newCall(build).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {

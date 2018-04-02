@@ -7,6 +7,10 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
+    <permission android:name="com.dyy.newtest.ALIVE_PERMISSION" />
+
+    <uses-permission android:name="com.dyy.newtest.ALIVE_PERMISSION" />
+
     <application
         android:name=".utils.MyApplacation"
         android:allowBackup="true"
@@ -16,7 +20,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
-            android:name=".ui.activity.service.UploadActivity"
+            android:name=".ui.activity.EncodeActivity.RSAActivity"
             android:alwaysRetainTaskState="true"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:launchMode="singleTask">
@@ -66,7 +70,13 @@
         <activity
             android:name=".ui.activity.launchmode.SingleInstanceActivity"
             android:exported="true"
-            android:launchMode="singleInstance" />
+            android:launchMode="singleInstance">
+            <intent-filter>
+                <action android:name="com.dyy.newtest.SingleInstanceActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity android:name=".ui.activity.launchmode.FlagsSingleTopActivity" />
         <activity android:name=".ui.activity.launchmode.FlagsSingleTaskActivity" />
         <activity android:name=".ui.activity.launchmode.FlagsSingleInstanceActivity" />
@@ -135,9 +145,76 @@
         <!-- </intent-filter> -->
         <!-- </receiver> -->
 
+        <activity
+            android:name=".ui.activity.service.NotificationActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
 
-        <!-- <activity android:name=".ui.activity.service.NotificationActivity"></activity> -->
-        <!--<activity android:name=".ui.activity.service.UploadActivity"></activity>-->
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="ceshi"
+                    android:scheme="hello" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.activity.service.UploadActivity"
+            android:exported="true" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.dyy.newtest.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <!-- 元数据 -->
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <!-- <activity android:name=".ui.activity.service.keepliveservice.AlarmActivity" /> -->
+
+        <service
+            android:name=".ui.service.AlarmService"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name=".ui.service.LocalService"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name=".ui.service.RemoteService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":remoteservice" />
+
+        <receiver android:name=".ui.receiver.AlarmReceiver">
+            <intent-filter>
+                <action android:name="alarm" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".ui.receiver.KeepliveReceiver"
+            android:permission="com.dyy.newtest">
+            <intent-filter>
+                <action android:name="com.dyy.newtest.alive" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".ui.service.EmptyMusicService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":empty_music" />
+
+        <activity android:name=".ui.activity.service.keepliveservice.SportsActivity" />
+        <!-- <activity android:name=".ui.activity.webview.JSAndroidActivity"></activity> -->
+        <!-- <activity android:name=".ui.activity.ViewInjectActivity"></activity> -->
+        <!-- <activity android:name=".ui.activity.EncodeActivity.Base64Activity"></activity> -->
+        <!--<activity android:name=".ui.activity.EncodeActivity.RSAActivity"></activity>-->
     </application>
 
 </manifest>

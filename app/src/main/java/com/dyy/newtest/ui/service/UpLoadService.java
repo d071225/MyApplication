@@ -43,6 +43,7 @@ public class UpLoadService extends IntentService {
 
     @Override
     protected void onHandleIntent(@Nullable Intent intent) {
+        LogUtils.e("-------------onHandleIntent-----------");
         if (intent!=null){
             builder = new NotificationCompat.Builder(this);
             builder.setSmallIcon(R.drawable.icon_map);
@@ -58,6 +59,26 @@ public class UpLoadService extends IntentService {
     public void upLoadFile(String path){
         try {
 //            Thread.sleep(3000);
+//            boolean hasAlwaysDeniedPermission = PermissionUtils.hasAlwaysDeniedPermission(UploadActivity.mContext, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+//            if (hasAlwaysDeniedPermission){
+//                LogUtils.e(hasAlwaysDeniedPermission+";"+getPackageName());
+//                Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+//                intent.setData(Uri.parse("package:" + getPackageName()));
+//                startActivity(intent);
+//            }else {
+//                PermissionUtils.requestPermissions(UploadActivity.mContext, 101, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE,
+//                        Manifest.permission.WRITE_EXTERNAL_STORAGE}, new PermissionUtils.OnPermissionListener() {
+//                    @Override
+//                    public void onPermissionGranted() {
+//                        ToastUtils.showLong("读取SD授权成功！");
+//                    }
+//
+//                    @Override
+//                    public void onPermissionDenied(String[] deniedPermissions) {
+//                        ToastUtils.showLong("读取SD授权失败！");
+//                    }
+//                });
+//            }
             URL url=new URL("http://dl001.liqucn.com/upload/2017/293/g/com.snda.wifilocating_4.2.61_liqucn.com.apk");
             HttpURLConnection con= (HttpURLConnection) url.openConnection();
             con.connect();
@@ -77,9 +98,11 @@ public class UpLoadService extends IntentService {
                     progress =contentRead*100/contentLength;
                     fos.write(bytes,0,len);
                     fos.flush();
-                    builder.setProgress(100,progress,false);
-                    builder.setContentText("下载进度："+progress+"%");
-                    manager.notify(20,builder.build());
+                    if (progress%10==0) {
+                        builder.setProgress(100, progress, false);
+                        builder.setContentText("下载进度：" + progress + "%");
+                        manager.notify(20, builder.build());
+                    }
                 }
                 builder.setProgress(0,0,true);
                 builder.setContentText("安装中...");
@@ -104,4 +127,22 @@ public class UpLoadService extends IntentService {
         }
     }
 
+    @Override
+    public int onStartCommand(@Nullable Intent intent, int flags, int startId) {
+        LogUtils.e("-------------onStartCommand-----------");
+        return super.onStartCommand(intent, flags, startId);
+    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        LogUtils.e("-------------onCreate-----------");
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        manager.cancelAll();
+        LogUtils.e("-------------onDestroy-----------");
+    }
 }

@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Carson_Ho</title>
+<script>
+   function callJS(){
+      alert("Android调用了JS的callJS方法");
+	  return 100;
+   }
+   function callAndroid(){
+      alert("JS调用了Android的方法");
+	  startActivity.toUpLoadActivity();
+   }
+   function callAndroid2(){
+      alert("JS调用了Android的方法2");
+	  document.location="ss://webview?title=nihao&content=我是JS";
+   }
+   function callAndroid3(){
+      alert("JS调用了Android的方法3");
+	  document.location="intent:#Intent;component=com.dyy.newtest/.ui.activity.service.UploadActivity;end";
+   }
+   function callAndroid5(){
+		var result=prompt("prompt://hello?num=1");
+		alert(result);
+   }
+</script>
+
+</head>
+    <h1 onclick="callJS()">我是JS</h1>
+	<a onclick="callAndroid()">调用android方法1:定义addJavaScriptInterface</a>
+	<button onclick="callAndroid2()">调用android方法2:定义协议</button>
+	<button onclick="callAndroid3()">调用android方法3:利用component启动应用</button>
+	<a href="hello://ceshi">调用android方法4:定义协议启动activity</a>
+	<button onclick="callAndroid5()">调用android方法5:监听prompt调用android方法并返回值</button>
+	<a href="http://3g.sina.com.cn">访问file协议文件</a>
+</html>

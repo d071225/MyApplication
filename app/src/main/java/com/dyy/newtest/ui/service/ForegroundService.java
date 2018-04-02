@@ -62,8 +62,8 @@ public class ForegroundService extends Service {
                     break;
             }
         }
-        return super.onStartCommand(intent, flags, startId);
-//        return START_REDELIVER_INTENT;
+//        return super.onStartCommand(intent, flags, startId);
+        return START_REDELIVER_INTENT;
     }
 
     @Override
@@ -71,7 +71,7 @@ public class ForegroundService extends Service {
         LogUtils.e("******PlayerService onCreate*******");
         if (mediaPlayer==null) {
             mediaPlayer = MediaPlayer.create(this, R.raw.i_wanna_go);
-            mediaPlayer.setLooping(false);
+            mediaPlayer.setLooping(true);
         }
         musicReceiver = new MusicReceiver();
         IntentFilter inflater=new IntentFilter();
