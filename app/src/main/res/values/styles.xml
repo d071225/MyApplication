@@ -19,6 +19,7 @@
     <style name="FullscreenActionBarStyle" parent="Widget.AppCompat.ActionBar">
         <item name="android:background">@color/black_overlay</item>
     </style>
+
     <style name="dialog" parent="@android:style/Theme.Dialog">
 
         <!-- 去黑边 -->
@@ -38,4 +39,8 @@
         <!-- 点击空白部分activity不消失 -->
         <item name="android:windowCloseOnTouchOutside">false</item>
     </style>
+
+    <style name="AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

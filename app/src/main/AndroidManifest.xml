@@ -20,7 +20,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
-            android:name=".ui.activity.EncodeActivity.RSAActivity"
+            android:name=".ui.activity.tablayout.TabLayoutActivity"
             android:alwaysRetainTaskState="true"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:launchMode="singleTask">
@@ -214,7 +214,14 @@
         <!-- <activity android:name=".ui.activity.webview.JSAndroidActivity"></activity> -->
         <!-- <activity android:name=".ui.activity.ViewInjectActivity"></activity> -->
         <!-- <activity android:name=".ui.activity.EncodeActivity.Base64Activity"></activity> -->
-        <!--<activity android:name=".ui.activity.EncodeActivity.RSAActivity"></activity>-->
+        <!-- <activity android:name=".ui.activity.EncodeActivity.RSAActivity"></activity> -->
+        <!-- <activity android:name=".ui.activity.JniTestActivity"></activity> -->
+        <!-- <activity android:name=".ui.activity.LeakCanaryActivity"></activity> -->
+        <!-- <activity -->
+        <!-- android:name=".ui.activity.tablayout.TabsActivity" -->
+        <!-- android:label="@string/title_activity_tabs" -->
+        <!-- android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity> -->
+        <!--<activity android:name=".ui.activity.tablayout.TabLayoutActivity"></activity>-->
     </application>
 
 </manifest>

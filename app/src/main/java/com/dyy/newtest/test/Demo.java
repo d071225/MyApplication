@@ -1,6 +1,7 @@
 package com.dyy.newtest.test;
 
 import com.dyy.newtest.utils.AES;
+import com.dyy.newtest.utils.AESUtils;
 
 import java.util.Random;
 import java.util.UUID;
@@ -81,10 +82,28 @@ public class Demo {
             System.out.println("https--"+url);
         }
 
-        String key="06E24157EE9535D509CEF4454A9B95AF";
-        String keyContent="F9FF6B369C8542735DEE1689A40AE2EF";
+        String key="91C30FB7B5193593B19BF776BED2517D";
+        String keyContent="E30E703F2F90DD7C99D3357896DEA59A";
         String decrypt = AES.decrypt(keyContent, AES.hex2byte(key));
         System.out.println(decrypt);
 
+        String seed = "123456789";
+        String KEY1 = AES.generateKeyString(seed);
+        String KEY2 = AES.generateKeyString(seed);
+        String KEY3 = AES.generateKeyString(seed);
+        System.out.println(KEY1);
+        System.out.println(KEY2);
+        System.out.println(KEY3);
+
+        try {
+            byte[] rawKey = AESUtils.getRawKey(seed.getBytes());
+            System.out.println(AES.byte2hex(rawKey));
+            byte[] rawKey2 = AESUtils.getRawKey(seed.getBytes());
+            System.out.println(AES.byte2hex(rawKey2));
+            byte[] rawKey3 = AESUtils.getRawKey(seed.getBytes());
+            System.out.println(AES.byte2hex(rawKey3));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

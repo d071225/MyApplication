@@ -6,6 +6,7 @@ import android.os.Process;
 
 import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.Utils;
+import com.squareup.leakcanary.LeakCanary;
 
 /**
  * Created by DY on 2018/1/9.
@@ -16,6 +17,7 @@ public class MyApplacation extends Application {
     public void onCreate() {
         super.onCreate();
         Utils.init(this);
+        LeakCanary.install(this);
         int pid = Process.myPid();
         String processName=null;
         ActivityManager manager= (ActivityManager) getApplicationContext().getSystemService(ACTIVITY_SERVICE);
