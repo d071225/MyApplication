@@ -55,7 +55,7 @@ public class TabLayoutActivity extends AppCompatActivity {
             tab.setCustomView(view);
             tl.addTab(tab);
         }
-        vp.setOffscreenPageLimit(1);
+        vp.setOffscreenPageLimit(8);
         vp.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tl){
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -150,6 +150,7 @@ public class TabLayoutActivity extends AppCompatActivity {
             tvContent = (TextView) view.findViewById(R.id.tv_content);
             iv = (ImageView) view.findViewById(R.id.iv);
             prepared =true;
+            lazyload();
             return view;
         }
         public void lazyload(){
