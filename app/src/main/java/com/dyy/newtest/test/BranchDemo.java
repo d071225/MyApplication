@@ -7,5 +7,6 @@ package com.dyy.newtest.test;
 public class BranchDemo {
     public static void main(String[] args) {
         //1.我是master分支
+        //2.我是分支测试
     }
 }
