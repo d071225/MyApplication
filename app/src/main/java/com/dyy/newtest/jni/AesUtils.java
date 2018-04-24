@@ -1,8 +1,9 @@
-package com.dyy.newtest.utils;
+package com.dyy.newtest.jni;
 
 import android.util.Base64;
 
 import com.blankj.utilcode.util.LogUtils;
+import com.dyy.newtest.utils.CryptoProvider;
 
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
@@ -21,11 +22,15 @@ import javax.crypto.spec.SecretKeySpec;
  * Created by DY on 2018/4/2.
  */
 
-public class AES {
+public class AesUtils {
     // /** 算法/模式/填充 **/
     private static final String CipherMode = "AES/ECB/PKCS5Padding";
     // private static final String CipherMode = "AES";
-
+    static {
+        System.loadLibrary("native-lib");
+    }
+    public native static String getAesEncContent(String content);
+    public native static String getAesDecContent(String keyContent);
     /**
      * 生成一个AES密钥对象
      * @return

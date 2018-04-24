@@ -33,7 +33,6 @@ public class CircleView extends View {
         super(context, attrs, defStyleAttr);
         mPaint = new Paint();
     }
-
     @Override
     protected void onDraw(Canvas canvas) {
         mPaint.setAntiAlias(true);
