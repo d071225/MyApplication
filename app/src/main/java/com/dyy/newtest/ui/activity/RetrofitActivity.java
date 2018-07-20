@@ -38,6 +38,7 @@ public class RetrofitActivity extends AppCompatActivity {
         setContentView(R.layout.activity_retrofit);
         ButterKnife.bind(this);
         Log.e(TAG,"onCreate---"+Thread.currentThread().getId());
+        Log.e(TAG,"onCreate--- hello3");
     }
 
     @OnClick(R.id.btn_req)
