@@ -37,12 +37,13 @@ public class RetrofitActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_retrofit);
         ButterKnife.bind(this);
+        Log.e(TAG,"onCreate---"+Thread.currentThread().getId());
     }
 
     @OnClick(R.id.btn_req)
     public void onViewClicked() {
-        getData();
-//        getYDData();
+//        getData();
+        getYDData();
     }
     public void getYDData(){
         Retrofit retrofit=new Retrofit.Builder()
@@ -55,7 +56,7 @@ public class RetrofitActivity extends AppCompatActivity {
         call.enqueue(new Callback<GetYDResponse>() {
             @Override
             public void onResponse(Call<GetYDResponse> call, Response<GetYDResponse> response) {
-                Log.e(TAG,"返回数据---"+response);
+                Log.e(TAG,"返回数据---"+response+";"+Thread.currentThread().getId());
                 GetYDResponse body = response.body();
                 Log.e(TAG,"返回数据 body---"+ body.getContent().toString());
                 textContent.setText(body.getContent().toString());
