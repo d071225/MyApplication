@@ -20,7 +20,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
-            android:name=".ui.activity.tablayout.TabLayoutActivity"
+            android:name=".ui.activity.webview.WebViewActivity"
             android:alwaysRetainTaskState="true"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:launchMode="singleTask">
@@ -163,17 +163,19 @@
             android:name=".ui.activity.service.UploadActivity"
             android:exported="true" />
 
-        <provider
-            android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.dyy.newtest.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true">
+        <!-- <provider -->
+        <!-- android:name="android.support.v4.content.FileProvider" -->
+        <!-- android:authorities="com.dyy.newtest.fileprovider" -->
+        <!-- android:exported="false" -->
+        <!-- android:grantUriPermissions="true"> -->
 
-            <!-- 元数据 -->
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths" />
-        </provider>
+
+        <!-- &lt;!&ndash; 元数据 &ndash;&gt; -->
+        <!-- <meta-data -->
+        <!-- android:name="android.support.FILE_PROVIDER_PATHS" -->
+        <!-- android:resource="@xml/file_paths" /> -->
+        <!-- </provider> -->
+
 
         <!-- <activity android:name=".ui.activity.service.keepliveservice.AlarmActivity" /> -->
 
@@ -221,7 +223,22 @@
         <!-- android:name=".ui.activity.tablayout.TabsActivity" -->
         <!-- android:label="@string/title_activity_tabs" -->
         <!-- android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity> -->
-        <!--<activity android:name=".ui.activity.tablayout.TabLayoutActivity"></activity>-->
+        <!-- <activity android:name=".ui.activity.tablayout.TabLayoutActivity"></activity> -->
+        <!-- <activity android:name=".ui.activity.AppUpdate.DownloadManagerActivity"></activity> -->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.dyy.newtest.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <!-- 元数据 -->
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <!-- <activity android:name=".ui.activity.appcache.SPActivity"></activity> -->
+        <!--<activity android:name=".ui.activity.webview.WebViewActivity"></activity>-->
     </application>
 
 </manifest>

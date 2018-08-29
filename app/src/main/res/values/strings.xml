@@ -12,4 +12,9 @@
     <string name="title_activity_tabs">TabsActivity</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
+    <string name="downloadmanager">Downloadmanager下载</string>
+    <string name="app_download">应用内下载</string>
+    <string name="sp_save">sp保存数据</string>
+    <string name="sp_remove_key">移除sp某个key</string>
+    <string name="sp_clear">清除sp</string>
 </resources>

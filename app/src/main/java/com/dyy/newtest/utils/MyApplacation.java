@@ -2,6 +2,7 @@ package com.dyy.newtest.utils;
 
 import android.app.ActivityManager;
 import android.app.Application;
+import android.content.Context;
 import android.os.Process;
 
 import com.blankj.utilcode.util.LogUtils;
@@ -13,6 +14,9 @@ import com.squareup.leakcanary.LeakCanary;
  */
 
 public class MyApplacation extends Application {
+
+    public static Context mContext;
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -27,5 +31,7 @@ public class MyApplacation extends Application {
             }
         }
         LogUtils.a("processName:"+processName);
+        mContext = this;
     }
+
 }
