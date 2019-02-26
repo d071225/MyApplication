@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.dyy.newtest">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -20,7 +21,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
-            android:name=".ui.activity.webview.WebViewActivity"
+            android:name=".ui.activity.dialog.DialogActivity"
             android:alwaysRetainTaskState="true"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:launchMode="singleTask">
@@ -51,11 +52,11 @@
             android:finishOnTaskLaunch="true"
             android:launchMode="standard" />
         <!-- <activity android:name=".ui.activity.launchmode.LaunchModeActivity"></activity> -->
-        <activity
-            android:name=".ui.activity.launchmode.StandardActivity"
-            android:alwaysRetainTaskState="true"
-            android:exported="true"
-            android:launchMode="standard" />
+        <!-- <activity -->
+        <!-- android:name=".ui.activity.launchmode.StandardActivity" -->
+        <!-- android:alwaysRetainTaskState="true" -->
+        <!-- android:exported="true" -->
+        <!-- android:launchMode="standard" /> -->
         <activity
             android:name=".ui.activity.launchmode.SingleTopActivity"
             android:alwaysRetainTaskState="true"
@@ -238,7 +239,11 @@
         </provider>
 
         <!-- <activity android:name=".ui.activity.appcache.SPActivity"></activity> -->
-        <!--<activity android:name=".ui.activity.webview.WebViewActivity"></activity>-->
+        <!-- <activity android:name=".ui.activity.webview.WebViewActivity"></activity> -->
+        <!-- <activity android:name=".ui.activity.scroll.ScrollViewActivity"></activity> -->
+        <activity android:name=".ui.activity.scroll.ScrollToOrByActivity" />
+        <!-- <activity android:name=".ui.activity.scroll.TranslationActivity"></activity> -->
+        <!--<activity android:name=".ui.activity.dialog.DialogActivity"></activity>-->
     </application>
 
 </manifest>

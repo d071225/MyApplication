@@ -7,6 +7,7 @@ import android.os.Process;
 
 import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.Utils;
+import com.mob.MobSDK;
 import com.squareup.leakcanary.LeakCanary;
 
 /**
@@ -32,6 +33,10 @@ public class MyApplacation extends Application {
         }
         LogUtils.a("processName:"+processName);
         mContext = this;
+        MobSDK.init(this);
+    }
+    public static Context getContext(){
+        return mContext;
     }
 
 }

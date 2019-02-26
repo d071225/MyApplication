@@ -7,32 +7,20 @@
     android:orientation="vertical"
     tools:context="com.dyy.newtest.ui.activity.launchmode.LaunchModeActivity">
     <LinearLayout
-        android:layout_width="100dp"
-        android:layout_height="40dp"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
         android:orientation="vertical"
         android:id="@+id/transition_name_ll"
         android:transitionName="standardLl"
         android:background="@drawable/shape"></LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
-        <Button
-            android:layout_width="100dp"
-            android:id="@+id/test"
-            android:layout_height="wrap_content"
-            android:text="@string/service_de"/>
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/btn_standard"
-            android:transitionName="standardBtn"
-            android:text="启动standard模式的activity"/>
-    </LinearLayout>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/btn_standard"
+        android:text="启动standard模式的activity"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
         android:id="@+id/btn_singleTop"
         android:transitionName="standardBtn"
         android:text="启动singleTop模式的activity"/>
@@ -61,16 +49,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/btn_singleInstance_flags"
         android:text="启动flags,singleInstance模式的activity"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btn_goto_singleTaskActivity"
-        android:text="跳转到singleTaskActivity"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btn_goto_standardActivity"
-        android:text="跳转到standardActivity"/>
     <TextView
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -79,5 +57,4 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/et"/>
-
 </LinearLayout>
